@@ -434,10 +434,9 @@ const setPastLabel=()=>pastToggle.textContent=(showPast?'✓ ':'+ ')+'trecut';
 pastToggle.onclick=()=>{showPast=!showPast;pastToggle.classList.toggle('on',showPast);
  setPastLabel();updateDayVis();apply()};
 setPastLabel();dd.appendChild(pastToggle);
-const allBtn=dayBtn('Toate zilele','*');dd.appendChild(allBtn);
 const dayBtns={},dayObjs=[];
 DAYS.forEach(d=>{const b=dayBtn(d.label,d.date);const past=dayMid(d.date)<todayMid;
- if(past)b.classList.add('past');dd.appendChild(b);dayBtns[d.date]=b;dayObjs.push({b,past})});
+ if(past)b.classList.add('past');dd.appendChild(b);dayBtns[d.date]=b;dayObjs.push({b,past,date:d.date})});
 const dayMore=document.createElement('button');dayMore.className='morebtn';
 dayMore.onclick=()=>{dayExpanded=!dayExpanded;updateDayVis()};dd.appendChild(dayMore);
 function updateDayVis(){let i=0;
@@ -447,8 +446,9 @@ function updateDayVis(){let i=0;
  const hidden=dayObjs.filter(o=>(showPast||!o.past)&&o.b.style.display==='none').length;
  dayMore.style.display=(hidden>0||dayExpanded)?'':'none';
  dayMore.textContent=dayExpanded?'− mai puține':('+ '+hidden)}
-let def=dayBtns[todayStr]; // today if it's a festival day, else show all (future-only via notPast)
-if(def){curDay=todayStr}else{def=allBtn;curDay='*'}
+let def=dayBtns[todayStr]; // today if a festival day, else first upcoming day
+if(def){curDay=todayStr}
+else{const o=dayObjs.find(o=>!o.past)||dayObjs[0];def=o.b;curDay=o.date}
 def.classList.add('on');activeDayBtn=def;
 updateDayVis();apply();
 </script></body></html>
