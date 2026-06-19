@@ -33,6 +33,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 #days button,#f button{flex:0 0 auto;border:1px solid #d33;background:transparent;color:#d33;
  border-radius:14px;padding:5px 12px;font-size:.8rem;cursor:pointer;white-space:nowrap}
 #f button.on{background:#d33;color:#fff}
+#f button.morebtn{border-color:#888;color:inherit;font-weight:600}
 #days button{border-color:#555;color:inherit}
 #days button.on{background:#333;color:#fff;border-color:#333}
 #days button.past{opacity:.35}
@@ -374,12 +375,26 @@ function apply(){document.querySelectorAll('.ev').forEach(e=>{
   while(n&&n.tagName==='DIV'){if(n.style.display!=='none')vis=true;n=n.nextElementSibling}
   h.style.display=vis?'':'none'})}
 
-let defIdx=FILTERS.findIndex(x=>x.type==='free');if(defIdx<0)defIdx=0;  // default: Gratis
-let favBtn=null;
-FILTERS.forEach((flt,i)=>{const b=document.createElement('button');b.textContent=flt.label;
+// Only a few primary filters show; the rest hide behind a "+" toggle.
+const PRIMARY=new Set(['all','fav','free','ticket']);
+let favBtn=null,activeBtn=null,expanded=false;
+const fbtns=[];
+function selectCat(flt,b){f.querySelectorAll('button.fbtn').forEach(c=>c.classList.remove('on'));
+ b.classList.add('on');activeBtn=b;curCat=flt;apply();updateFilterVis()}
+function mkCat(flt){const b=document.createElement('button');b.className='fbtn';b.textContent=flt.label;
+ b.dataset.primary=PRIMARY.has(flt.type)?'1':'0';
  if(flt.type==='fav')favBtn=b;
- b.onclick=()=>{[...f.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');
-  curCat=flt;apply()};f.appendChild(b);if(i===defIdx){b.classList.add('on');curCat=flt}});
+ b.onclick=()=>selectCat(flt,b);fbtns.push({flt,b});return b}
+FILTERS.filter(x=>PRIMARY.has(x.type)).forEach(flt=>f.appendChild(mkCat(flt)));
+const moreBtn=document.createElement('button');moreBtn.className='morebtn';f.appendChild(moreBtn);
+FILTERS.filter(x=>!PRIMARY.has(x.type)).forEach(flt=>f.appendChild(mkCat(flt)));
+function updateFilterVis(){fbtns.forEach(o=>{
+  o.b.style.display=(o.b.dataset.primary==='1'||expanded||o.b===activeBtn)?'':'none'});
+ const hidden=fbtns.filter(o=>o.b.dataset.primary==='0'&&o.b!==activeBtn).length;
+ moreBtn.textContent=expanded?'− mai puține':('+ '+hidden)}
+moreBtn.onclick=()=>{expanded=!expanded;updateFilterVis()};
+const defObj=fbtns.find(o=>o.flt.type==='free')||fbtns[0];  // default: Gratis
+selectCat(defObj.flt,defObj.b);
 
 // Favorites: per-show heart toggle, persisted in localStorage.
 function updateFavCount(){if(favBtn)favBtn.textContent='♥ Favorite ('+favs.size+')'}
