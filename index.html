@@ -392,7 +392,7 @@ function countFor(flt){let n=0;document.querySelectorAll('.ev').forEach(e=>{
 function updateCounts(){fbtns.forEach(o=>{o.b.textContent=o.flt.label+' ('+countFor(o.flt)+')'})}
 
 // Only a few primary filters show; the rest hide behind a "+" toggle.
-const PRIMARY=new Set(['all','fav','free','ticket']);
+const PRIMARY=new Set(['all','fav','free']);
 let favBtn=null,activeBtn=null,expanded=false;
 const fbtns=[];
 function selectCat(flt,b){f.querySelectorAll('button.fbtn').forEach(c=>c.classList.remove('on'));
