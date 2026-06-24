@@ -632,7 +632,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 <div class="ev once" data-id="horia-brenciu---hb-orchestra---concert-live|06-28-2026|22:30" data-date="06-28-2026" data-time="22:30" data-end="23:30" data-venue="piata mare scena" data-circ="0" data-church="0" data-expo="0" data-soldout="0" data-ticket="0" data-once="1"><span class="t">22:30<small class="end">23:30</small></span><a href="https://sibfest.ro/ro/homepage-127/events/horia-brenciu---hb-orchestra---concert-live" target="_blank"><span class="uq" title="o singură dată în festival">★</span>Horia Brenciu &amp; HB Orchestra - Live Concert</a><span class="v">Piața Mare Scenă</span><span class="d">1h</span><span class="fav" data-id="horia-brenciu---hb-orchestra---concert-live|06-28-2026|22:30" title="adaugă la favorite">♡</span></div>
 <div class="ev" data-id="spectacole-multimedia-cu-drone--lumini---muzic-|06-28-2026|23:45" data-date="06-28-2026" data-time="23:45" data-end="00:00" data-venue="piata teatrului" data-circ="0" data-church="0" data-expo="0" data-soldout="0" data-ticket="0" data-once="0"><span class="t">23:45<small class="end">00:00</small></span><a href="https://sibfest.ro/ro/homepage-127/events/spectacole-multimedia-cu-drone--lumini---muzic-" target="_blank">Multimedia Shows with Drones, Lights &amp; Music</a><span class="v">Piața Teatrului</span><span class="d">15min</span><span class="fav" data-id="spectacole-multimedia-cu-drone--lumini---muzic-|06-28-2026|23:45" title="adaugă la favorite">♡</span></div></div>
 <script>
-const FILTERS=[{"label": "All", "type": "all"}, {"label": "♥ Favourites", "type": "fav"}, {"label": "🖼 Exhibitions", "type": "expo", "n": 263}, {"label": "Free", "type": "free", "n": 226}, {"label": "🎟 Ticketed", "type": "ticket", "n": 143}, {"label": "Circus (all venues)", "type": "circ", "n": 79}, {"label": "⛪ Churches/Cathedrals/Synagogues", "type": "church", "n": 62}, {"label": "★ One-off", "type": "once", "n": 59}, {"label": "Nicolae Bălcescu", "type": "venue", "key": "nicolae balcescu", "n": 58}, {"label": "Piața Huet", "type": "venue", "key": "piata huet", "n": 56}, {"label": "Piața Habermann", "type": "venue", "key": "piata habermann", "n": 47}, {"label": "Piața Mică", "type": "venue", "key": "piata mica", "n": 33}, {"label": "Parcul Astra", "type": "venue", "key": "parcul astra", "n": 21}, {"label": "Piața Mare", "type": "venue", "key": "piata mare", "n": 20}, {"label": "Parcul Tineretului", "type": "venue", "key": "parcul tineretului", "n": 9}, {"label": "Strada Cetății", "type": "venue", "key": "strada cetatii", "n": 7}],DAYS=[{"date": "06-19-2026", "label": "Vi 19", "n": 49}, {"date": "06-20-2026", "label": "Sâ 20", "n": 54}, {"date": "06-21-2026", "label": "Du 21", "n": 55}, {"date": "06-22-2026", "label": "Lu 22", "n": 50}, {"date": "06-23-2026", "label": "Ma 23", "n": 48}, {"date": "06-24-2026", "label": "Mi 24", "n": 65}, {"date": "06-25-2026", "label": "Jo 25", "n": 67}, {"date": "06-26-2026", "label": "Vi 26", "n": 58}, {"date": "06-27-2026", "label": "Sâ 27", "n": 58}, {"date": "06-28-2026", "label": "Du 28", "n": 55}],T={"past": "past", "fewer": "− fewer", "more": "+ ", "walk": "min walk", "onFoot": "on foot", "to": "to", "tight": "⚠ tight", "map": "map", "now": "now", "conflict": "Overlaps a favourite:"};
+const FILTERS=[{"label": "All", "type": "all"}, {"label": "♥ Favourites", "type": "fav"}, {"label": "🖼 Exhibitions", "type": "expo", "n": 263}, {"label": "Free", "type": "free", "n": 226}, {"label": "🎟 Ticketed", "type": "ticket", "n": 143}, {"label": "Circus (all venues)", "type": "circ", "n": 79}, {"label": "⛪ Churches/Cathedrals/Synagogues", "type": "church", "n": 62}, {"label": "★ One-off", "type": "once", "n": 59}, {"label": "Nicolae Bălcescu", "type": "venue", "key": "nicolae balcescu", "n": 58}, {"label": "Piața Huet", "type": "venue", "key": "piata huet", "n": 56}, {"label": "Piața Habermann", "type": "venue", "key": "piata habermann", "n": 47}, {"label": "Piața Mică", "type": "venue", "key": "piata mica", "n": 33}, {"label": "Parcul Astra", "type": "venue", "key": "parcul astra", "n": 21}, {"label": "Piața Mare", "type": "venue", "key": "piata mare", "n": 20}, {"label": "Parcul Tineretului", "type": "venue", "key": "parcul tineretului", "n": 9}, {"label": "Strada Cetății", "type": "venue", "key": "strada cetatii", "n": 7}],DAYS=[{"date": "06-19-2026", "label": "Vi 19", "n": 49}, {"date": "06-20-2026", "label": "Sâ 20", "n": 54}, {"date": "06-21-2026", "label": "Du 21", "n": 55}, {"date": "06-22-2026", "label": "Lu 22", "n": 50}, {"date": "06-23-2026", "label": "Ma 23", "n": 48}, {"date": "06-24-2026", "label": "Mi 24", "n": 65}, {"date": "06-25-2026", "label": "Jo 25", "n": 67}, {"date": "06-26-2026", "label": "Vi 26", "n": 58}, {"date": "06-27-2026", "label": "Sâ 27", "n": 58}, {"date": "06-28-2026", "label": "Du 28", "n": 55}],T={"past": "past", "fewer": "− fewer", "more": "+ ", "walk": "min walk", "onFoot": "on foot", "to": "to", "tight": "⚠ tight", "map": "map", "now": "now", "overlap": "overlap — hard to catch both fully"};
 let curDay='*',curCat=FILTERS[0];
 const f=document.getElementById('f'),dd=document.getElementById('days');
 
@@ -678,15 +678,25 @@ function renderWalks(){document.querySelectorAll('.walk').forEach(n=>n.remove())
  if(curCat.type!=='fav')return;  // walking hints only in your plan (♥ Favorite)
  const vis=[...document.querySelectorAll('.ev')].filter(e=>e.style.display!=='none');
  for(let i=0;i<vis.length-1;i++){const a=vis[i],b=vis[i+1];
-  if(a.dataset.date!==b.dataset.date||a.dataset.venue===b.dataset.venue)continue;
+  if(a.dataset.date!==b.dataset.date)continue;
+  const aEnd=toMin(a.dataset.end),bStart=toMin(b.dataset.time);
+  const overlap=(aEnd!=null&&bStart!=null&&bStart<aEnd);
+  const diffV=a.dataset.venue!==b.dataset.venue;
+  if(!overlap&&!diffV)continue;  // same place, one after another -> no note
   const va=a.querySelector('.v').textContent,vb=b.querySelector('.v').textContent;
-  const m=walkMin(a.dataset.venue,b.dataset.venue);
-  const gap=(toMin(b.dataset.time)!=null&&toMin(a.dataset.end)!=null)?toMin(b.dataset.time)-toMin(a.dataset.end):null;
-  const tight=(m!=null&&gap!=null&&gap<m);
-  const div=document.createElement('div');div.className='walk'+(tight?' tight':'');
-  const dist=(m!=null)?('~'+m+' '+T.walk):T.onFoot;
-  div.innerHTML='🚶 '+dist+(tight?' '+T.tight:'')+' '+T.to+' '+vb
-   +' · <a href="'+mapsLink(va,vb)+'" target="_blank">'+T.map+'</a>';
+  const div=document.createElement('div');
+  if(overlap){  // allowed, but flag that you can't fully attend both
+   div.className='walk tight';
+   div.innerHTML='⚠ '+T.overlap+(diffV?(' · '+T.to+' '+vb+' · <a href="'+mapsLink(va,vb)+'" target="_blank">'+T.map+'</a>'):'');
+  }else{
+   const m=walkMin(a.dataset.venue,b.dataset.venue);
+   const gap=(bStart!=null&&aEnd!=null)?bStart-aEnd:null;
+   const tight=(m!=null&&gap!=null&&gap<m);
+   div.className='walk'+(tight?' tight':'');
+   const dist=(m!=null)?('~'+m+' '+T.walk):T.onFoot;
+   div.innerHTML='🚶 '+dist+(tight?' '+T.tight:'')+' '+T.to+' '+vb
+    +' · <a href="'+mapsLink(va,vb)+'" target="_blank">'+T.map+'</a>';
+  }
   b.parentNode.insertBefore(div,b)}}
 function dayOk(e){return curDay==='*'||e.dataset.date===curDay}
 function renderNow(){document.querySelectorAll('.nowline').forEach(n=>n.remove());
@@ -746,8 +756,7 @@ document.querySelectorAll('.fav').forEach(s=>{
  if(favs.has(s.dataset.id)){s.classList.add('on');s.textContent='♥';row.classList.add('faved')}
  s.onclick=()=>{const id=s.dataset.id;
   if(favs.has(id)){favs.delete(id);s.classList.remove('on');s.textContent='♡';row.classList.remove('faved');}
-  else{const c=conflictTitle(row);if(c){alert(T.conflict+' '+c);return}
-   favs.add(id);s.classList.add('on');s.textContent='♥';row.classList.add('faved');}
+  else{favs.add(id);s.classList.add('on');s.textContent='♥';row.classList.add('faved');}
   localStorage.setItem(FAVKEY,JSON.stringify([...favs]));apply();}});
 
 // Day selector: only a few days show, the rest behind a "+" toggle.
