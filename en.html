@@ -691,7 +691,7 @@ function renderWalks(){document.querySelectorAll('.walk').forEach(n=>n.remove())
 function dayOk(e){return curDay==='*'||e.dataset.date===curDay}
 function renderNow(){document.querySelectorAll('.nowline').forEach(n=>n.remove());
  const vis=[...document.querySelectorAll('.ev')].filter(e=>e.style.display!=='none'&&e.dataset.date===TODAY_KEY);
- if(!vis.length)return;
+ if(!vis.length||!vis.some(e=>startedPast(e)))return;  // no line unless something started in the last hour
  const line=document.createElement('div');line.className='nowline';
  line.textContent='🕒 '+T.now+' '+PAD(NOW.getHours())+':'+PAD(NOW.getMinutes());
  const tgt=vis.find(e=>e.dataset.time&&toMin(e.dataset.time)>=NOW_MIN);
