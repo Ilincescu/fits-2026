@@ -659,10 +659,10 @@ const FAVKEY='fits_favs';
 let favs=new Set(JSON.parse(localStorage.getItem(FAVKEY)||'[]'));
 function match(e,flt){
  if(flt.type==='expo')return e.dataset.expo==='1';
- if(e.dataset.expo==='1')return false;  // exhibitions only show under the Expoziții filter
- if(flt.type==='all')return true;
- if(flt.type==='rec')return REC.has(e.dataset.id);
+ if(flt.type==='rec')return REC.has(e.dataset.id);   // fav/rec may include exhibitions
  if(flt.type==='fav')return favs.has(e.dataset.id);
+ if(e.dataset.expo==='1')return false;  // otherwise exhibitions only show under Expoziții
+ if(flt.type==='all')return true;
  if(flt.type==='circ')return e.dataset.circ==='1';
  if(flt.type==='church')return e.dataset.church==='1';
  if(flt.type==='ticket')return e.dataset.ticket==='1';
