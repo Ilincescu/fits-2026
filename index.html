@@ -848,8 +848,10 @@ function updateDayVis(){
  dayMore.style.display=(hidden>0||dayExpanded)?'':'none';
  dayMore.textContent=dayExpanded?T.fewer:(T.more+hidden)}
 let def=dayBtns[todayStr]; // today if a festival day, else first upcoming day
-if(def){curDay=todayStr}
-else{const o=dayObjs.find(o=>!o.past)||dayObjs[0];def=o.b;curDay=o.date}
-def.classList.add('on');activeDayBtn=def;
+if(REC.size){curDay='*';activeDayBtn=null}  // shared link: show recommendations across all days
+else{
+ if(def){curDay=todayStr}else{const o=dayObjs.find(o=>!o.past)||dayObjs[0];def=o.b;curDay=o.date}
+ def.classList.add('on');activeDayBtn=def;
+}
 updateDayVis();apply();
 </script></body></html>
