@@ -32,7 +32,10 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 .ev.live .t::before{content:"● ";color:#1a7f37}
 .nowline{font-size:.78rem;font-weight:700;color:#d33;border-top:2px solid #d33;margin:7px 0 3px;padding-top:4px}
 .ev.rec a::before{content:"🌟 "}
-#actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+#topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:8px 0}
+#topbar .legend{margin:0;flex:1 1 auto}
+#topbar #actions{margin:0}
+#actions{display:flex;flex-wrap:wrap;gap:8px}
 #actions button{border:1px solid #1a7f37;background:#1a7f37;color:#fff;border-radius:14px;
  padding:6px 14px;font-size:.85rem;cursor:pointer;font-weight:600}
 .ev a{font-weight:600;text-decoration:none;color:inherit}
@@ -67,8 +70,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 </style></head><body>
 <h1><a class="lang" href="index.html">RO</a>FITS 2026</h1>
 <div id="bars"><div id="days"></div><div id="f"></div></div>
-<div id="actions"></div>
-<details class="legend"><summary>ℹ️ Legend (colours &amp; symbols)</summary>
+<div id="topbar"><details class="legend"><summary>ℹ️ Legend (colours &amp; symbols)</summary>
 <div class="row"><span class="sym green">★</span> green — show that happens <b>only once</b> in the whole festival</div>
 <div class="row"><span class="sym amber">📅</span> amber — happens on <b>a single day</b> (maybe several times that day, but not another day)</div>
 <div class="row"><span class="sym gold">🎟</span> gold — <b>ticketed</b> show (the rest are free)</div>
@@ -77,7 +79,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 <div class="row"><span class="sym ">👁</span> tap the eye on shows you have <b>seen</b> — all their performances appear dimmed</div>
 <div class="row"><span class="sym green">●</span> green bar — show <b>in progress</b> now (you can still catch it); finished ones are dimmed, below the "now" line</div>
 <div class="row"><span class="sym ">🕒</span> "+ past" — also show past days/shows (hidden by default)</div>
-</details>
+</details><div id="actions"></div></div>
 <div id="list"><h2 data-date="06-19-2026">Fr 19-06</h2>
 <div class="ev" data-id="patrimoniu-c---rat|06-19-2026|00:00" data-show="patrimoniu-c---rat" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="catedrala luterana evanghelica ,,sf. maria”" data-circ="0" data-church="1" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/patrimoniu-c---rat" target="_blank">Climbing Heritage</a><span class="v">Catedrala Luterană Evanghelică ,,Sf. Maria”</span><span class="d">23h 59min</span><span class="seen" data-show="patrimoniu-c---rat" title="mark as seen">👁</span><span class="fav" data-id="patrimoniu-c---rat|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>
 <div class="ev" data-id="focus-fits-outdoor|06-19-2026|00:00" data-show="focus-fits-outdoor" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="piata huet" data-circ="0" data-church="0" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/focus-fits-outdoor" target="_blank">Focus FITS OUTDOOR</a><span class="v">Piața Huet</span><span class="d">23h 59min</span><span class="seen" data-show="focus-fits-outdoor" title="mark as seen">👁</span><span class="fav" data-id="focus-fits-outdoor|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>

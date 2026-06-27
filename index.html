@@ -32,7 +32,10 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 .ev.live .t::before{content:"● ";color:#1a7f37}
 .nowline{font-size:.78rem;font-weight:700;color:#d33;border-top:2px solid #d33;margin:7px 0 3px;padding-top:4px}
 .ev.rec a::before{content:"🌟 "}
-#actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+#topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:8px 0}
+#topbar .legend{margin:0;flex:1 1 auto}
+#topbar #actions{margin:0}
+#actions{display:flex;flex-wrap:wrap;gap:8px}
 #actions button{border:1px solid #1a7f37;background:#1a7f37;color:#fff;border-radius:14px;
  padding:6px 14px;font-size:.85rem;cursor:pointer;font-weight:600}
 .ev a{font-weight:600;text-decoration:none;color:inherit}
@@ -67,8 +70,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 </style></head><body>
 <h1><a class="lang" href="en.html">EN</a>FITS 2026</h1>
 <div id="bars"><div id="days"></div><div id="f"></div></div>
-<div id="actions"></div>
-<details class="legend"><summary>ℹ️ Legendă (culori &amp; simboluri)</summary>
+<div id="topbar"><details class="legend"><summary>ℹ️ Legendă (culori &amp; simboluri)</summary>
 <div class="row"><span class="sym green">★</span> verde — spectacol care are loc <b>o singură dată</b> în tot festivalul</div>
 <div class="row"><span class="sym amber">📅</span> portocaliu — are loc <b>într-o singură zi</b> (poate de mai multe ori în ziua aia, dar n-o prinzi altă zi)</div>
 <div class="row"><span class="sym gold">🎟</span> auriu — spectacol <b>cu bilet</b> (restul sunt gratis)</div>
@@ -77,7 +79,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 <div class="row"><span class="sym ">👁</span> apasă ochiul la spectacolele <b>văzute</b> — apar estompate la toate reprezentațiile</div>
 <div class="row"><span class="sym green">●</span> verde cu bară — spectacol <b>în curs</b> acum (încă îl poți prinde); cele terminate apar estompate, sub linia „acum"</div>
 <div class="row"><span class="sym ">🕒</span> „+ trecut" — arată și zilele/spectacolele trecute (implicit ascunse)</div>
-</details>
+</details><div id="actions"></div></div>
 <div id="list"><h2 data-date="06-19-2026">Vi 19-06</h2>
 <div class="ev" data-id="patrimoniu-c---rat|06-19-2026|00:00" data-show="patrimoniu-c---rat" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="catedrala luterana evanghelica ,,sf. maria”" data-circ="0" data-church="1" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/patrimoniu-c---rat" target="_blank">Patrimoniu cățărat</a><span class="v">Catedrala Luterană Evanghelică ,,Sf. Maria”</span><span class="d">23h 59min</span><span class="seen" data-show="patrimoniu-c---rat" title="marchează ca văzut">👁</span><span class="fav" data-id="patrimoniu-c---rat|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>
 <div class="ev" data-id="focus-fits-outdoor|06-19-2026|00:00" data-show="focus-fits-outdoor" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="piata huet" data-circ="0" data-church="0" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/focus-fits-outdoor" target="_blank">Focus FITS OUTDOOR</a><span class="v">Piața Huet</span><span class="d">23h 59min</span><span class="seen" data-show="focus-fits-outdoor" title="marchează ca văzut">👁</span><span class="fav" data-id="focus-fits-outdoor|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>
