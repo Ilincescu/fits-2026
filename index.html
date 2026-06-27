@@ -64,6 +64,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 #days button{border-color:#555;color:inherit}
 #days button.on{background:#333;color:#fff;border-color:#333}
 #days button.past{opacity:.35}
+#days button.sharebtn{border-color:#1a7f37;background:#1a7f37;color:#fff;font-weight:600}
 .legend{margin:10px 0;font-size:.82rem}
 .legend summary{cursor:pointer;opacity:.85;font-weight:600}
 .legend .row{display:flex;align-items:center;gap:8px;margin:7px 0 0 2px}
@@ -71,7 +72,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 .legend .green{color:#1a7f37}.legend .gold{color:#b8860b}.legend .pink{color:#e0245e}
 </style></head><body>
 <div id="bars"><div id="hdr"><h1>FITS 2026</h1><div id="days"></div><a class="lang" href="en.html">EN</a></div><div id="f"></div></div>
-<div id="topbar"><details class="legend"><summary>ℹ️ Legendă</summary>
+<details class="legend"><summary>ℹ️ Legendă</summary>
 <div class="row"><span class="sym green">★</span> verde — spectacol care are loc <b>o singură dată</b> în tot festivalul</div>
 <div class="row"><span class="sym amber">📅</span> portocaliu — are loc <b>într-o singură zi</b> (poate de mai multe ori în ziua aia, dar n-o prinzi altă zi)</div>
 <div class="row"><span class="sym gold">🎟</span> auriu — spectacol <b>cu bilet</b> (restul sunt gratis)</div>
@@ -80,7 +81,7 @@ h2{position:sticky;top:0;background:Canvas;padding:10px 0 6px;margin:18px 0 4px;
 <div class="row"><span class="sym ">👁</span> apasă ochiul la spectacolele <b>văzute</b> — apar estompate la toate reprezentațiile</div>
 <div class="row"><span class="sym green">●</span> verde cu bară — spectacol <b>în curs</b> acum (încă îl poți prinde); cele terminate apar estompate, sub linia „acum"</div>
 <div class="row"><span class="sym ">🕒</span> „+ trecut" — arată și zilele/spectacolele trecute (implicit ascunse)</div>
-</details><div id="actions"></div></div>
+</details>
 <div id="list"><h2 data-date="06-19-2026">Vi 19-06</h2>
 <div class="ev" data-id="patrimoniu-c---rat|06-19-2026|00:00" data-show="patrimoniu-c---rat" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="catedrala luterana evanghelica ,,sf. maria”" data-circ="0" data-church="1" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/patrimoniu-c---rat" target="_blank">Patrimoniu cățărat</a><span class="v">Catedrala Luterană Evanghelică ,,Sf. Maria”</span><span class="d">23h 59min</span><span class="seen" data-show="patrimoniu-c---rat" title="marchează ca văzut">👁</span><span class="fav" data-id="patrimoniu-c---rat|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>
 <div class="ev" data-id="focus-fits-outdoor|06-19-2026|00:00" data-show="focus-fits-outdoor" data-date="06-19-2026" data-time="00:00" data-end="23:59" data-venue="piata huet" data-circ="0" data-church="0" data-expo="1" data-soldout="0" data-ticket="0" data-once="0"><span class="t">00:00<small class="end">23:59</small></span><a href="https://sibfest.ro/ro/homepage-127/events/focus-fits-outdoor" target="_blank">Focus FITS OUTDOOR</a><span class="v">Piața Huet</span><span class="d">23h 59min</span><span class="seen" data-show="focus-fits-outdoor" title="marchează ca văzut">👁</span><span class="fav" data-id="focus-fits-outdoor|06-19-2026|00:00" title="adaugă la favorite">♡</span></div>
@@ -804,22 +805,21 @@ document.querySelectorAll('.seen').forEach(s=>{
   paintSeen(show);localStorage.setItem(SEENKEY,JSON.stringify([...seen]));}});
 
 // Share favourites as a link; friends open it to see them as 🌟 recommendations.
-const actions=document.getElementById('actions');
-const shareBtn=document.createElement('button');shareBtn.textContent=SH.btn;
+// Share button + optional import button — appended into the day bar (after the days)
+const shareBtn=document.createElement('button');shareBtn.className='sharebtn';shareBtn.textContent=SH.btn;
 shareBtn.onclick=()=>{if(!favs.size){alert(SH.empty);return}
  const url=location.origin+location.pathname+'?rec='+encodeURIComponent([...favs].join('~'));
  if(navigator.share){navigator.share({title:SH.title,url}).catch(()=>{});}
  else if(navigator.clipboard){navigator.clipboard.writeText(url);alert(SH.copied);}
  else{prompt(SH.copied,url);}};
-actions.appendChild(shareBtn);
+let impBtn=null;
 if(REC.size){  // opened from a shared link: mark recommendations + offer to import them
  document.querySelectorAll('.ev').forEach(e=>{if(REC.has(e.dataset.id))e.classList.add('rec')});
- const imp=document.createElement('button');imp.textContent=SH.import;
- imp.onclick=()=>{REC.forEach(id=>favs.add(id));localStorage.setItem(FAVKEY,JSON.stringify([...favs]));
+ impBtn=document.createElement('button');impBtn.className='sharebtn';impBtn.textContent=SH.import;
+ impBtn.onclick=()=>{REC.forEach(id=>favs.add(id));localStorage.setItem(FAVKEY,JSON.stringify([...favs]));
   document.querySelectorAll('.fav').forEach(s=>{if(favs.has(s.dataset.id)){
    s.classList.add('on');s.textContent='♥';s.closest('.ev').classList.add('faved');}});
-  apply();alert(SH.imported);};
- actions.appendChild(imp);}
+  apply();alert(SH.imported);};}
 
 // Day selector: only a few days show, the rest behind a "+" toggle.
 const now=new Date(),pad=x=>String(x).padStart(2,'0');
@@ -856,5 +856,6 @@ else{
  if(def){curDay=todayStr}else{const o=dayObjs.find(o=>!o.past)||dayObjs[0];def=o.b;curDay=o.date}
  def.classList.add('on');activeDayBtn=def;
 }
+dd.appendChild(shareBtn);if(impBtn)dd.appendChild(impBtn);  // share/import on the day row
 updateDayVis();apply();
 </script></body></html>
